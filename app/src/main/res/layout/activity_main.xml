@@ -1,19 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText, ContentDescription, Autofill, SpeakableTextPresentCheck, LabelFor">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/restaurant_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgPastel"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/pastel_choclo"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/txtNombrePastel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Pastel de Choclo"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/imgPastel"
+        app:layout_constraintStart_toEndOf="@id/imgPastel"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/etCantidadPastel"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintTop_toBottomOf="@id/txtNombrePastel"
+        app:layout_constraintStart_toEndOf="@id/imgPastel"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/txtSubtotalPastel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etCantidadPastel"
+        app:layout_constraintStart_toEndOf="@id/imgPastel"
+        android:layout_marginStart="16dp" />
+
+    <ImageView
+        android:id="@+id/imgCazu"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/cazuela"
+        app:layout_constraintTop_toBottomOf="@id/imgPastel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNombreCazu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cazuela"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/imgCazu"
+        app:layout_constraintStart_toEndOf="@id/imgCazu"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/etCantidadCazu"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintTop_toBottomOf="@id/txtNombreCazu"
+        app:layout_constraintStart_toEndOf="@id/imgCazu"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/txtSubtotalCazu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etCantidadCazu"
+        app:layout_constraintStart_toEndOf="@id/imgCazu"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/lblComida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comida:"
+        android:textSize="16sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/imgCazu"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/txtTotalComida" />
+
+    <TextView
+        android:id="@+id/txtTotalComida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/lblComida"
+        app:layout_constraintStart_toEndOf="@id/lblComida"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchPropina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Desea agregar Propina (10%)? "
+        android:checked="true"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/lblComida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/txtTotalPropina" />
+
+    <TextView
+        android:id="@+id/txtTotalPropina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/switchPropina"
+        app:layout_constraintBottom_toBottomOf="@id/switchPropina"
+        app:layout_constraintStart_toEndOf="@id/switchPropina"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lblTotalFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOTAL:"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/switchPropina"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/txtTotalFinal" />
+
+    <TextView
+        android:id="@+id/txtTotalFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/lblTotalFinal"
+        app:layout_constraintStart_toEndOf="@id/lblTotalFinal"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
